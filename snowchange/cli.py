@@ -60,6 +60,7 @@ def snowchange(root_folder, snowflake_account, snowflake_user, snowflake_role, s
   }
 
   # TODO: Is there a better way to do this without setting environment variables?
+  os.getenv["SNOWFLAKE_PASSWORD"]= s_password
   os.environ["SNOWFLAKE_ACCOUNT"] = snowflake_account
   os.environ["SNOWFLAKE_USER"] = snowflake_user
   os.environ["SNOWFLAKE_ROLE"] = snowflake_role
@@ -348,6 +349,7 @@ def main():
   parser = argparse.ArgumentParser(prog = 'snowchange', description = 'Apply schema changes to a Snowflake account. Full readme at https://github.com/Snowflake-Labs/snowchange', formatter_class = argparse.RawTextHelpFormatter)
   parser.add_argument('-f','--root-folder', type = str, default = ".", help = 'The root folder for the database change scripts', required = False)
   parser.add_argument('-a', '--snowflake-account', type = str, help = 'The name of the snowflake account (e.g. xy12345.east-us-2.azure)', required = True)
+  parser.add_argument('-p', '--snowflake-password', type = str, help = 'The name of the snowflake password', required = True)
   parser.add_argument('-u', '--snowflake-user', type = str, help = 'The name of the snowflake user', required = True)
   parser.add_argument('-r', '--snowflake-role', type = str, help = 'The name of the default role to use', required = True)
   parser.add_argument('-w', '--snowflake-warehouse', type = str, help = 'The name of the default warehouse to use. Can be overridden in the change scripts.', required = True)
@@ -360,7 +362,7 @@ def main():
   parser.add_argument('--dry-run', action='store_true', help = 'Run snowchange in dry run mode (the default is False)', required = False)
   args = parser.parse_args()
 
-  snowchange(args.root_folder, args.snowflake_account, args.snowflake_user, args.snowflake_role, args.snowflake_warehouse, args.snowflake_database, args.change_history_table, args.vars, args.create_change_history_table, args.autocommit, args.verbose, args.dry_run)
+  snowchange(args.root_folder, args.snowflake_account,agrs.s_password, args.snowflake_user, args.snowflake_role, args.snowflake_warehouse, args.snowflake_database, args.change_history_table, args.vars, args.create_change_history_table, args.autocommit, args.verbose, args.dry_run)
 
 if __name__ == "__main__":
     main()
