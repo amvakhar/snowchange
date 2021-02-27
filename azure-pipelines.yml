@@ -5,6 +5,11 @@ steps:
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.6'
-- script: python -m pip install snowchange --upgrade
+- script: python -m pip install --upgrade pip
+  displayName: 'Install PIP Update'
+
+- script: python -m pip install snowflake-connector-python
   displayName: 'Install Snowchange'
-- script: python  snowchange -a $(SNOWFLAKE_ACCOUNT) -u $(SNOWFLAKE_USER) -r $(SNOWFLAKE_ROLE) -w $(SNOWFLAKE_WAREHOUSE) -d $(SNOWFLAKE_DATABASE)
+- 
+  script: python snowchange/cli.py -a $(SNOWFLAKE_ACCOUNT) -u $(SNOWFLAKE_USER) -r $(SNOWFLAKE_ROLE) -w $(SNOWFLAKE_WAREHOUSE) -d $(SNOWFLAKE_DATABASE)
+  displayName: 'Main Code'
