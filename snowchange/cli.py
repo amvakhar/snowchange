@@ -60,7 +60,7 @@ def snowchange(root_folder, snowflake_account, snowflake_user, snowflake_role, s
   }
 
   # TODO: Is there a better way to do this without setting environment variables?
-  os.getenv["SNOWFLAKE_PASSWORD"]= s_password
+  os.environ["SNOWFLAKE_PASSWORD"]= s_password
   os.environ["SNOWFLAKE_ACCOUNT"] = snowflake_account
   os.environ["SNOWFLAKE_USER"] = snowflake_user
   os.environ["SNOWFLAKE_ROLE"] = snowflake_role
@@ -362,7 +362,7 @@ def main():
   parser.add_argument('--dry-run', action='store_true', help = 'Run snowchange in dry run mode (the default is False)', required = False)
   args = parser.parse_args()
 
-  snowchange(args.root_folder, args.snowflake_account,agrs.s_password, args.snowflake_user, args.snowflake_role, args.snowflake_warehouse, args.snowflake_database, args.change_history_table, args.vars, args.create_change_history_table, args.autocommit, args.verbose, args.dry_run)
+  snowchange(args.root_folder, args.snowflake_account, args.s_password, args.snowflake_user, args.snowflake_role, args.snowflake_warehouse, args.snowflake_database, args.change_history_table, args.vars, args.create_change_history_table, args.autocommit, args.verbose, args.dry_run)
 
 if __name__ == "__main__":
     main()
