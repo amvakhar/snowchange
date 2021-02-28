@@ -1,5 +1,6 @@
 trigger:
-- '*'
+- master
+- demo/citibike/*
   
 steps:
 - task: UsePythonVersion@0
