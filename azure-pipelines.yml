@@ -1,7 +1,5 @@
 trigger:
 - '*'
-variables:
-  SNOWFLAKE_PASSWORD: '$(SNOWFLAKE_PASSWORD)'
   
 steps:
 - task: UsePythonVersion@0
