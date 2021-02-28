@@ -1,7 +1,11 @@
 trigger:
-- master
-- demo/citibike/*
-  
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - demo/bike
+
 steps:
 - task: UsePythonVersion@0
   inputs:
