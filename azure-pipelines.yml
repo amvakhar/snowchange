@@ -9,7 +9,7 @@ steps:
   displayName: 'Install PIP Update'
 
 - script: python -m pip install snowflake-connector-python
-  displayName: 'Install Snowchange'
+  displayName: 'Install Snow-connector-python'
   
 - task: PowerShell@2
   displayName: Add the username as an environment variable so the tests can find it.
