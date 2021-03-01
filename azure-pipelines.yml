@@ -19,5 +19,5 @@ steps:
       Write-Host "Making the Snowflake_password available as an environment variable."
       Write-Host "##vso[task.setvariable variable=SNOWSQL_PWD;]$(password)"
 
-- script: snowchange -e dev -n  --snowflake-region us-east-1 -a $(SNOWFLAKE_ACCOUNT) -u $(SNOWFLAKE_USER) -r $(SNOWFLAKE_ROLE) -w $(SNOWFLAKE_WAREHOUSE) 
+- script: snowchange -e dev -f /demo/citibike  --snowflake-region us-east-1 -a $(SNOWFLAKE_ACCOUNT) -u $(SNOWFLAKE_USER) -r $(SNOWFLAKE_ROLE) -w $(SNOWFLAKE_WAREHOUSE) 
   displayName: 'Main Code'
