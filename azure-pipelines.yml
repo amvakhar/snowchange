@@ -13,8 +13,8 @@ steps:
 - script: python -m pip install --upgrade pip
   displayName: 'Install PIP Update'
 
-- script: pip install snowchange --upgrade
-  displayName: 'Install Snowchange Module'
+- script: python -m pip install --upgrade pip
+  displayName: 'Install Snow Connector'
   
 - task: PowerShell@2
   displayName: Add environment variable
@@ -24,7 +24,5 @@ steps:
       Write-Host "Making the Snowflake_password available as an environment variable."
       Write-Host "##vso[task.setvariable variable=SNOWFLAKE_PASSWORD;]$(password)"
 
-- script: |
-      python import snowchange
-      snowchange -a $(SNOWFLAKE_ACCOUNT) -u $(SNOWFLAKE_USER) -r $(SNOWFLAKE_ROLE) -w $(SNOWFLAKE_WAREHOUSE) -d $(SNOWFLAKE_DATABASE)
+- script: python snowchange/cli.py -a $(SNOWFLAKE_ACCOUNT) -u $(SNOWFLAKE_USER) -r $(SNOWFLAKE_ROLE) -w $(SNOWFLAKE_WAREHOUSE) -d $(SNOWFLAKE_DATABASE)
   displayName: 'Main Code'
