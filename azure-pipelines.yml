@@ -13,5 +13,5 @@ steps:
 - script: python -m pip install snowflake-connector-python
   displayName: 'Install Snowchange'
 - 
-  script: python snowchange/cli.py -a $(SNOWFLAKE_ACCOUNT) -p $(SNOWFLAKE_PASSWORD) -u $(SNOWFLAKE_USER) -r $(SNOWFLAKE_ROLE) -w $(SNOWFLAKE_WAREHOUSE) -d $(SNOWFLAKE_DATABASE)
+  script: python snowchange/cli.py -a $(SNOWFLAKE_ACCOUNT) -u $(SNOWFLAKE_USER) -r $(SNOWFLAKE_ROLE) -w $(SNOWFLAKE_WAREHOUSE) -d $(SNOWFLAKE_DATABASE)
   displayName: 'Main Code'
