@@ -21,5 +21,5 @@ steps:
 
 - script: |
     python import snowchange 
-    snowchange -a $(SNOWFLAKE_ACCOUNT) -u $(SNOWFLAKE_USER) -r $(SNOWFLAKE_ROLE) -w $(SNOWFLAKE_WAREHOUSE) -d $(SNOWFLAKE_DATABASE)
+    snowchange -n --snowflake-region us-east-1 -a $(SNOWFLAKE_ACCOUNT) -u $(SNOWFLAKE_USER) -r $(SNOWFLAKE_ROLE) -w $(SNOWFLAKE_WAREHOUSE) -d $(SNOWFLAKE_DATABASE)
   displayName: 'Main Code'
