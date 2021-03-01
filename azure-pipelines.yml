@@ -10,12 +10,10 @@ steps:
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.6'
-- script: python -m pip install --upgrade pip
-  displayName: 'Install PIP Update'
-
-- script: python -m pip install --upgrade pip
-  displayName: 'Install Snow Connector'
-  
+- script: |
+    python -m pip install --upgrade pip
+    pip install snowflake-connector-python
+  displayName: 'Install Module'
 - task: PowerShell@2
   displayName: Add environment variable
   inputs:
