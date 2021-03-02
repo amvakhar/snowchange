@@ -1,5 +1,10 @@
 trigger:
-- '*'
+  branches:
+    include:
+    - child
+  paths:
+    include:
+    - demo/citibike
   
 steps:
 - task: UsePythonVersion@0
